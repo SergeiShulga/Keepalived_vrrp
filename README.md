@@ -6,7 +6,7 @@
 В качестве решения предоставьте:
 - рабочую конфигурацию обеих нод, оформленную как блок кода в вашем md-файле;
 - скриншоты статуса сервисов, на которых видно, что одна нода перешла в MASTER, а вторая в BACKUP state.
-<                                                                                       
+< >                                                                                       
 vrrp_instance test {
 state MASTER
 interface enp0s8
@@ -24,9 +24,9 @@ virtual_ipaddress {
 192.168.56.200 dev enp0s8 label vip
 }
 }
->
 
-<                                                                                         
+
+< >                                                                                         
 vrrp_instance test {
 state BACKUP
 interface enp0s8
