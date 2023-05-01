@@ -3,44 +3,50 @@
 
 Задание 1
 Разверните топологию из лекции и выполните установку и настройку сервиса Keepalived.
-
-vrrp_instance test {
-
-state "name_mode"
-
-interface "name_interface"
-
-virtual_router_id "number id"
-
-priority "number priority"
-
-advert_int "number advert"
-
-authentication {
-
-auth_type "auth type"
-
-auth_pass "password"
-
-}
-
-unicast_peer {
-
-"ip address host"
-
-}
-
-virtual_ipaddress {
-
-"ip address host" dev "interface" label "interface":vip
-
-}
-
-}
-
 В качестве решения предоставьте:
 - рабочую конфигурацию обеих нод, оформленную как блок кода в вашем md-файле;
 - скриншоты статуса сервисов, на которых видно, что одна нода перешла в MASTER, а вторая в BACKUP state.
+<                                                                                       
+vrrp_instance test {
+state MASTER
+interface enp0s8
+virtual_router_id 10
+priority 110
+advert_int 4
+authentication {
+auth_type AH
+auth_pass 1234
+}
+unicast_peer {
+192.168.56.103
+}
+virtual_ipaddress {
+192.168.56.200 dev enp0s8 label vip
+}
+}
+>
+
+<                                                                                         
+vrrp_instance test {
+state BACKUP
+interface enp0s8
+virtual_router_id 10
+priority 110
+advert_int 4
+authentication {
+auth_type AH
+auth_pass 1234
+}
+unicast_peer {
+192.168.56.102
+}
+virtual_ipaddress {
+192.168.56.200 dev enp0s8 label vip
+}
+}
+>
+![alt text](https://github.com/SergeiShulga/Keepalived_vrrp/blob/main/img/001.png)
+![alt text](https://github.com/SergeiShulga/Keepalived_vrrp/blob/main/img/002.png)
 
 Дополнительные задания со звёздочкой*
 Эти задания дополнительные. Их можно не выполнять. На зачёт это не повлияет. Вы можете их выполнить, если хотите глубже разобраться в материале.
