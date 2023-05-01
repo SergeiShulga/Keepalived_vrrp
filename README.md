@@ -45,8 +45,8 @@ virtual_ipaddress {
 }
 }
 >
-![alt text](https://github.com/SergeiShulga/Keepalived_vrrp/blob/main/img/001.png)
-![alt text](https://github.com/SergeiShulga/Keepalived_vrrp/blob/main/img/002.png)
+![alt text](https://github.com/SergeiShulga/Keepalived_vrrp/blob/main/img/VirtualBox_host 2.png)
+![alt text](https://github.com/SergeiShulga/Keepalived_vrrp/blob/main/img/VirtualBox_host 3.png)
 
 Дополнительные задания со звёздочкой*
 Эти задания дополнительные. Их можно не выполнять. На зачёт это не повлияет. Вы можете их выполнить, если хотите глубже разобраться в материале.
