@@ -7,7 +7,7 @@
 - рабочую конфигурацию обеих нод, оформленную как блок кода в вашем md-файле;
 - скриншоты статуса сервисов, на которых видно, что одна нода перешла в MASTER, а вторая в BACKUP state.
   
-  Nod MASTER
+  Nod MASTER:
   
   ```                                                                                  
   vrrp_instance test {
@@ -28,8 +28,10 @@
   }
   }
 ```
+```
 
-Noda BACKUP
+
+Nod BACKUP:
 
 ```                                                                                        
   vrrp_instance test {
