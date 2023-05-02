@@ -6,45 +6,50 @@
 В качестве решения предоставьте:
 - рабочую конфигурацию обеих нод, оформленную как блок кода в вашем md-файле;
 - скриншоты статуса сервисов, на которых видно, что одна нода перешла в MASTER, а вторая в BACKUP state.
+  
+  Nod MASTER
+  
   ```                                                                                  
-  >vrrp_instance test {
-  >state MASTER
-  >interface enp0s8
-  >virtual_router_id 10
-  >priority 110
-  >advert_int 4
-  >authentication {
-  >auth_type AH
-  >auth_pass 1234
-  >}
-  >unicast_peer {
-  >192.168.56.103
-  >}
-  >virtual_ipaddress {
-  >192.168.56.200 dev enp0s8 label vip
-  >}
-  >}
+  vrrp_instance test {
+  state MASTER
+  interface enp0s8
+  virtual_router_id 10
+  priority 110
+  advert_int 4
+  authentication {
+  auth_type AH
+  auth_pass 1234
+  }
+  unicast_peer {
+  192.168.56.103
+  }
+  virtual_ipaddress {
+  192.168.56.200 dev enp0s8 label vip
+  }
+  }
 ```
 
-< >                                                                                         
-vrrp_instance test {
-state BACKUP
-interface enp0s8
-virtual_router_id 10
-priority 110
-advert_int 4
-authentication {
-auth_type AH
-auth_pass 1234
-}
-unicast_peer {
-192.168.56.102
-}
-virtual_ipaddress {
-192.168.56.200 dev enp0s8 label vip
-}
-}
->
+Noda BACKUP
+
+```                                                                                        
+  vrrp_instance test {
+  state BACKUP
+  interface enp0s8
+  virtual_router_id 10
+  priority 110
+  advert_int 4
+  authentication {
+  auth_type AH
+  auth_pass 1234
+  }
+  unicast_peer {
+  192.168.56.102
+  }
+  virtual_ipaddress {
+  192.168.56.200 dev enp0s8 label vip
+  }
+  }
+```
 ![alt text](https://github.com/SergeiShulga/Keepalived_vrrp/blob/main/img/VirtualBox_host%202.png)
 ![alt text](https://github.com/SergeiShulga/Keepalived_vrrp/blob/main/img/VirtualBox_host%203.png)
 
